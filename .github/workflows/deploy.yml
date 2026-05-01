@@ -1,0 +1,79 @@
+name: Build and Deploy Slides
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build all slides
+        run: |
+          for dir in slides/*/; do
+            name=$(basename "$dir")
+            mkdir -p "dist/${name}"
+            npx marp "${dir}slides.md" -c marp.config.mjs -o "dist/${name}/index.html"
+          done
+
+      - name: Generate index page
+        run: |
+          cat > dist/index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html lang="ja">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Slides</title>
+            <style>
+              body { font-family: system-ui, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; color: #1a1a1a; }
+              h1 { font-size: 24px; }
+              ul { list-style: none; padding: 0; }
+              li { margin-bottom: 12px; }
+              a { color: #5a9ca0; text-decoration: none; font-size: 18px; }
+              a:hover { text-decoration: underline; }
+            </style>
+          </head>
+          <body>
+            <h1>Slides</h1>
+            <ul>
+          HTMLEOF
+          for dir in dist/*/; do
+            name=$(basename "$dir")
+            echo "      <li><a href=\"${name}/\">${name}</a></li>" >> dist/index.html
+          done
+          cat >> dist/index.html << 'HTMLEOF'
+            </ul>
+          </body>
+          </html>
+          HTMLEOF
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
