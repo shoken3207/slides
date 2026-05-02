@@ -158,6 +158,36 @@ section[data-marpit-pagination]::after {
 /* Progress Bar — styled via post-build injection (see deploy.yml) */
 
 /* ══════════════════════════════════════
+   Syntax Highlighting (highlight.js)
+   ══════════════════════════════════════ */
+section pre code .hljs-comment,
+section pre code .hljs-quote {
+  color: var(--fg-dim);
+  font-style: italic;
+}
+section pre code .hljs-keyword,
+section pre code .hljs-selector-tag,
+section pre code .hljs-type {
+  color: var(--fg-muted);
+  font-weight: 700;
+}
+section pre code .hljs-string,
+section pre code .hljs-template-variable,
+section pre code .hljs-attr {
+  color: var(--accent);
+}
+section pre code .hljs-number,
+section pre code .hljs-literal,
+section pre code .hljs-built_in {
+  color: var(--accent);
+}
+section pre code .hljs-title,
+section pre code .hljs-title.function_ {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════
    Custom Elements — CSS-only (no JS needed)
    ══════════════════════════════════════ */
 @keyframes blink {
@@ -481,18 +511,13 @@ section.whoami .avatar {
   color: var(--fg-dim);
   overflow: hidden;
 }
+section.whoami .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 section.whoami .avatar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 16px,
-    var(--border) 16px,
-    var(--border) 17px
-  );
-  opacity: 0.5;
+  content: none;
 }
 section.whoami .info h2 {
   font-size: 76px;
@@ -580,6 +605,8 @@ section.agenda ol li code {
 section.section-divider {
   background: var(--bg-alt);
   justify-content: center;
+  padding-top: 280px;
+  padding-bottom: 280px;
 }
 section.section-divider > code,
 section.section-divider > p > code {
@@ -617,6 +644,8 @@ section.section-divider h1 {
    ══════════════════════════════════════ */
 section.body-text {
   justify-content: center;
+  padding-top: 280px;
+  padding-bottom: 280px;
 }
 section.body-text h2 {
   font-size: 72px;
@@ -771,6 +800,8 @@ section.image-slide p:last-of-type:not(:first-of-type) {
    ══════════════════════════════════════ */
 section.quote {
   justify-content: center;
+  padding-top: 280px;
+  padding-bottom: 280px;
 }
 section.quote blockquote {
   border-left: none;
@@ -831,6 +862,8 @@ section.compare h2 {
    ══════════════════════════════════════ */
 section.closing {
   justify-content: center;
+  padding-top: 280px;
+  padding-bottom: 280px;
 }
 section.closing > p:first-of-type,
 section.closing > p:first-child {

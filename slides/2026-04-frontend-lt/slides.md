@@ -30,25 +30,26 @@ qr_slide: 2026-04-frontend-lt
 <lt-kicker>$ whoami</lt-kicker>
 
 <div class="whoami-grid">
-  <div class="avatar"><span>avatar</span></div>
+  <div class="avatar"><img src="assets/profile.jpg" alt="えざきち" /></div>
   <div class="info">
 
 <p style="font-family:var(--font-mono);font-size:22px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
 
-## Your Name
+## えざきち
 
-| role   | :: | Frontend Engineer   |
-|--------|----|---------------------|
-| org    | :: | SaaS Company, Inc.  |
-| x      | :: | *@ezakichi3207*     |
-| github | :: | *github.com/you*    |
-| blog   | :: | *blog.example.com*  |
+| role   | :: | Product Engineer           |
+|--------|----|----------------------------|
+| org    | :: | サイボウズ株式会社 / kintone開発 |
+| x      | :: | *<a href="https://x.com/ezakichi3207" target="_blank">@ezakichi3207</a>* |
+| github | :: | *<a href="https://github.com/shoken3207" target="_blank">shoken3207</a>* |
+| site   | :: | *<a href="https://zakki-portfolio.vercel.app/" target="_blank">zakki-portfolio</a>* |
 
   </div>
 </div>
 
-<div style="position:absolute;bottom:140px;right:100px">
-  <lt-postit rotate="-5">普段は React<br>と TypeScript<br>書いてます</lt-postit>
+<div style="position:absolute;bottom:120px;right:80px;display:flex;flex-direction:column;align-items:center;gap:12px">
+  <img src="assets/PXL_20260426_081005823.MP.jpg" style="width:260px;height:260px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);box-shadow:4px 6px 14px rgba(0,0,0,0.18);transform:rotate(3deg)" />
+  <lt-postit rotate="-5">最近、鳥取・岡山<br>旅行に行ってきました</lt-postit>
 </div>
 
 
@@ -56,8 +57,6 @@ qr_slide: 2026-04-frontend-lt
 
 <!-- _class: agenda -->
 <!-- header: "#agenda" -->
-
-<lt-kicker>agenda</lt-kicker>
 
 ## 本日 *話すこと*
 
@@ -87,8 +86,6 @@ qr_slide: 2026-04-frontend-lt
 <!-- _class: body-text -->
 <!-- header: "#key-message" -->
 
-<lt-kicker>key message</lt-kicker>
-
 ## ビルドは早ければ早いほど *正義。*
 
 > でも、本当に大事なのは「壊れないビルド」
@@ -98,8 +95,6 @@ qr_slide: 2026-04-frontend-lt
 
 <!-- _class: bullets -->
 <!-- header: "#approach" -->
-
-<lt-kicker>approach</lt-kicker>
 
 ## 3つの *改善ポイント*
 
@@ -115,8 +110,6 @@ qr_slide: 2026-04-frontend-lt
 
 <!-- _class: code-slide -->
 <!-- header: "#code #vite" -->
-
-<lt-kicker>example</lt-kicker>
 
 ## 差分は *数行で済む*
 
@@ -145,8 +138,6 @@ export default defineConfig({
 <!-- _class: image-slide -->
 <!-- header: "#demo" -->
 
-<lt-kicker>demo</lt-kicker>
-
 ## 実際の *画面*
 
 ![screenshot placeholder](assets/placeholder.png)
@@ -159,8 +150,6 @@ export default defineConfig({
 <!-- _class: quote -->
 <!-- header: "#quote" -->
 
-<lt-kicker>reference</lt-kicker>
-
 > Premature optimization is the root of all evil — yet we should not pass up our opportunities in that critical 3%.
 
 **Donald Knuth** · Structured Programming with go to Statements
@@ -170,8 +159,6 @@ export default defineConfig({
 
 <!-- _class: compare -->
 <!-- header: "#result" -->
-
-<lt-kicker>result</lt-kicker>
 
 ## ビルド時間が *1/3 に*
 

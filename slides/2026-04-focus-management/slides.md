@@ -30,25 +30,26 @@ qr_slide: 2026-04-focus-management
 <lt-kicker>$ whoami</lt-kicker>
 
 <div class="whoami-grid">
-  <div class="avatar"><span>avatar</span></div>
+  <div class="avatar"><img src="assets/profile.jpg" alt="えざきち" /></div>
   <div class="info">
 
 <p style="font-family:var(--font-mono);font-size:22px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
 
-## Your Name
+## えざきち
 
-| role   | :: | Frontend Engineer   |
+| role   | :: | Product Engineer    |
 |--------|----|---------------------|
-| org    | :: | SaaS Company, Inc.  |
-| x      | :: | *@ezakichi3207*     |
-| github | :: | *github.com/you*    |
-| blog   | :: | *blog.example.com*  |
+| org    | :: | サイボウズ株式会社 / kintone開発 |
+| x      | :: | *<a href="https://x.com/ezakichi3207" target="_blank">@ezakichi3207</a>* |
+| github | :: | *<a href="https://github.com/shoken3207" target="_blank">shoken3207</a>* |
+| site   | :: | *<a href="https://zakki-portfolio.vercel.app/" target="_blank">zakki-portfolio</a>* |
 
   </div>
 </div>
 
-<div style="position:absolute;bottom:140px;right:100px">
-  <lt-postit rotate="-5">普段は React<br>と TypeScript<br>書いてます</lt-postit>
+<div style="position:absolute;bottom:120px;right:80px;display:flex;flex-direction:column;align-items:center;gap:12px">
+  <img src="assets/PXL_20260426_081005823.MP.jpg" style="width:260px;height:260px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border);box-shadow:4px 6px 14px rgba(0,0,0,0.18);transform:rotate(3deg)" />
+  <lt-postit rotate="-5">最近、鳥取・岡山<br>旅行に行ってきました</lt-postit>
 </div>
 
 
@@ -56,8 +57,6 @@ qr_slide: 2026-04-focus-management
 
 <!-- _class: agenda -->
 <!-- header: "#agenda" -->
-
-<lt-kicker>agenda</lt-kicker>
 
 ## 本日 *話すこと*
 
@@ -87,8 +86,6 @@ qr_slide: 2026-04-focus-management
 <!-- _class: body-text -->
 <!-- header: "#key-message" -->
 
-<lt-kicker>key message</lt-kicker>
-
 ## フォーカスは「今どこにいるか」を *ユーザーに伝える唯一の手段。*
 
 > キーボードユーザーやスクリーンリーダー利用者にとって、フォーカスの迷子は操作不能と同義
@@ -98,8 +95,6 @@ qr_slide: 2026-04-focus-management
 
 <!-- _class: bullets -->
 <!-- header: "#basics" -->
-
-<lt-kicker>basics</lt-kicker>
 
 ## フォーカスが *重要な理由*
 
@@ -127,8 +122,6 @@ qr_slide: 2026-04-focus-management
 <!-- _class: bullets -->
 <!-- header: "#anti-patterns" -->
 
-<lt-kicker>anti-patterns</lt-kicker>
-
 ## フォーカスが *壊れる3つのパターン*
 
 - **モーダルを開いてもフォーカスが移動しない**
@@ -143,8 +136,6 @@ qr_slide: 2026-04-focus-management
 
 <!-- _class: code-slide -->
 <!-- header: "#code #trap" -->
-
-<lt-kicker>bad example</lt-kicker>
 
 ## モーダルの *フォーカス迷子*
 
@@ -187,8 +178,6 @@ function Modal({ isOpen, children }) {
 <!-- _class: code-slide -->
 <!-- header: "#code #focus-trap" -->
 
-<lt-kicker>technique 01</lt-kicker>
-
 ## フォーカス *トラップ*
 
 `useModal.ts`
@@ -211,8 +200,6 @@ const onClose = () => triggerRef.current?.focus();
 
 <!-- _class: code-slide -->
 <!-- header: "#code #route" -->
-
-<lt-kicker>technique 02</lt-kicker>
 
 ## ルート遷移時の *フォーカスリセット*
 
@@ -240,8 +227,6 @@ function useFocusOnNavigate() {
 <!-- _class: code-slide -->
 <!-- header: "#code #delete" -->
 
-<lt-kicker>technique 03</lt-kicker>
-
 ## 削除後の *フォーカス制御*
 
 `TodoList.tsx`
@@ -265,8 +250,6 @@ const handleDelete = (index: number) => {
 
 <!-- _class: compare -->
 <!-- header: "#result" -->
-
-<lt-kicker>result</lt-kicker>
 
 ## フォーカス管理の *Before / After*
 
@@ -299,8 +282,6 @@ const handleDelete = (index: number) => {
 <!-- _class: quote -->
 <!-- header: "#quote" -->
 
-<lt-kicker>reference</lt-kicker>
-
 > The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.
 
 **Tim Berners-Lee** · W3C
@@ -310,8 +291,6 @@ const handleDelete = (index: number) => {
 
 <!-- _class: bullets -->
 <!-- header: "#tips" -->
-
-<lt-kicker>practical tips</lt-kicker>
 
 ## 明日から *できること*
 

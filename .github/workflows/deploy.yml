@@ -41,6 +41,21 @@ jobs:
             bash scripts/inject-ogp.sh "dist/${name}/index.html" "$BASE_URL" "$name"
           done
 
+      - name: Copy assets to dist
+        run: |
+          for dir in slides/*/; do
+            name=$(basename "$dir")
+            # スライド固有の assets
+            if [ -d "${dir}assets" ]; then
+              cp -r "${dir}assets" "dist/${name}/assets"
+            fi
+            # 共有 assets (slides/assets/) をマージ
+            if [ -d "slides/assets" ]; then
+              mkdir -p "dist/${name}/assets"
+              cp -rn slides/assets/* "dist/${name}/assets/" 2>/dev/null || true
+            fi
+          done
+
       - name: Generate index page
         run: |
           cat > dist/index.html << 'HTMLEOF'

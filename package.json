@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "marp --preview -c marp.config.mjs",
-    "build": "marp -c marp.config.mjs -o dist/",
+    "build": "bash scripts/build.sh",
     "build:pdf": "marp -c marp.config.mjs --pdf --allow-local-files -o dist/",
     "build:pptx": "marp -c marp.config.mjs --pptx --allow-local-files -o dist/"
   },
