@@ -33,10 +33,11 @@ jobs:
         run: |
           BASE_URL=$(node -e "const p=require('./package.json');console.log(p.config?.slidesBaseUrl||'')")
           for dir in slides/*/; do
+            [ -f "${dir}slides.md" ] || continue
             name=$(basename "$dir")
             mkdir -p "dist/${name}"
             npx marp "${dir}slides.md" -c marp.config.mjs --bespoke.progress -o "dist/${name}/index.html"
-            npx marp "${dir}slides.md" -c marp.config.mjs --image png --image-scale 2 -o "dist/${name}/og.png"
+            npx marp "${dir}slides.md" -c marp.config.mjs --image png --image-scale 2 --allow-local-files -o "dist/${name}/og.png"
             bash scripts/inject-progress.sh "dist/${name}/index.html"
             bash scripts/inject-ogp.sh "dist/${name}/index.html" "$BASE_URL" "$name"
           done
@@ -44,11 +45,12 @@ jobs:
       - name: Copy assets to dist
         run: |
           for dir in slides/*/; do
+            [ -f "${dir}slides.md" ] || continue
             name=$(basename "$dir")
-            # スライド固有の assets
-            if [ -d "${dir}assets" ]; then
-              cp -r "${dir}assets" "dist/${name}/assets"
-            fi
+            # 共有 assets → スライド固有 assets の順でマージ
+            mkdir -p "dist/${name}/assets"
+            [ -d "slides/assets" ] && cp -r slides/assets/* "dist/${name}/assets/"
+            [ -d "${dir}assets" ] && cp -r "${dir}assets/"* "dist/${name}/assets/"
             # 共有 assets (slides/assets/) をマージ
             if [ -d "slides/assets" ]; then
               mkdir -p "dist/${name}/assets"
