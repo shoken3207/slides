@@ -16,7 +16,10 @@ fi
 OG_URL="${BASE_URL}/${SLIDE_NAME}/"
 OG_IMAGE="${BASE_URL}/${SLIDE_NAME}/og.png"
 
-OGP_TAGS="<meta property=\"og:image\" content=\"${OG_IMAGE}\"><meta property=\"og:url\" content=\"${OG_URL}\"><meta property=\"og:description\" content=\"LT Slides — ${SLIDE_NAME}\"><meta name=\"twitter:card\" content=\"summary_large_image\"><meta name=\"twitter:image\" content=\"${OG_IMAGE}\">"
+# Marp が出力する twitter:card=summary を summary_large_image に上書き
+sed -i'' -e 's|<meta name="twitter:card" content="summary">|<meta name="twitter:card" content="summary_large_image">|' "$HTML_FILE"
+
+OGP_TAGS="<meta property=\"og:image\" content=\"${OG_IMAGE}\"><meta property=\"og:url\" content=\"${OG_URL}\"><meta property=\"og:description\" content=\"LT Slides — ${SLIDE_NAME}\"><meta name=\"twitter:image\" content=\"${OG_IMAGE}\">"
 
 sed -i'' -e "s|</head>|${OGP_TAGS}</head>|" "$HTML_FILE"
 echo "Injected OGP: $HTML_FILE"
