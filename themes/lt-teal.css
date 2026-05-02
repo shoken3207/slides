@@ -3,7 +3,7 @@
  * @auto-scaling false
  *
  * Marp custom theme — Teal variant for LT slides
- * Design: 1280x720 (16:9)
+ * Design: 1920x1080 (16:9)
  *
  * Markdown → Design mapping:
  *   *italic* (em)     → accent color text
@@ -54,13 +54,13 @@
    Base section
    ══════════════════════════════════════ */
 section {
-  width: 1280px;
-  height: 720px;
-  background: var(--bg);
+  width: 1920px;
+  height: 1080px;
+  background: #faf9f6 !important;
   color: var(--fg);
   font-family: var(--font-main);
-  font-size: 20px;
-  padding: 53px 85px 64px;
+  font-size: 30px;
+  padding: 100px 128px 96px;
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
@@ -92,8 +92,8 @@ section code {
   font-family: var(--font-mono);
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 1px 6px;
+  border-radius: 4px;
+  padding: 2px 8px;
   font-size: 0.85em;
   color: var(--fg);
 }
@@ -105,30 +105,32 @@ section a {
 }
 
 /* ══════════════════════════════════════
-   Footer & Page Number (via Marp directives)
+   Header, Footer & Page Number
    ══════════════════════════════════════ */
 
-/* Footer (bottom-right) — set via `footer:` in frontmatter */
 section header,
 section footer {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   color: var(--fg-dim);
   letter-spacing: 0.02em;
   position: absolute;
   margin: 0;
   padding: 0;
 }
+/* Footer — center-bottom */
 section footer {
-  bottom: 29px;
-  right: 85px;
-  left: auto;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
   width: auto;
-  text-align: right;
+  text-align: center;
 }
+/* Header / topic tag — top-right */
 section header {
-  top: 29px;
-  right: 85px;
+  top: 44px;
+  right: 128px;
   left: auto;
   width: auto;
   text-align: right;
@@ -137,14 +139,14 @@ section header {
   letter-spacing: 0.04em;
 }
 
-/* Page number (bottom-left) — via paginate + custom CSS */
+/* Page number — bottom-left */
 section[data-marpit-pagination]::after {
   content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
   position: absolute;
-  bottom: 29px;
-  left: 85px;
+  bottom: 44px;
+  left: 128px;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   color: var(--fg-dim);
   letter-spacing: 0.05em;
   width: auto;
@@ -153,9 +155,10 @@ section[data-marpit-pagination]::after {
   margin: 0;
 }
 
+/* Progress Bar — styled via post-build injection (see deploy.yml) */
+
 /* ══════════════════════════════════════
    Custom Elements — CSS-only (no JS needed)
-   Styled via element selectors + attribute selectors
    ══════════════════════════════════════ */
 @keyframes blink {
   50% {
@@ -167,17 +170,17 @@ section[data-marpit-pagination]::after {
 lt-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 16px;
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 24px;
   color: var(--fg-muted);
   letter-spacing: 0.06em;
   text-transform: lowercase;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 lt-kicker::before {
   content: "";
-  width: 24px;
+  width: 36px;
   height: 2px;
   background: var(--accent);
   display: inline-block;
@@ -186,15 +189,15 @@ lt-kicker::before {
 /* ── lt-sticker ── */
 lt-sticker {
   display: inline-block;
-  padding: 5px 11px;
+  padding: 8px 16px;
   background: var(--accent);
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  border-radius: 3px;
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
 }
 lt-sticker[color="peach"] {
   background: var(--sticker2);
@@ -215,35 +218,31 @@ lt-sticker[rotate="8"]  { transform: rotate(8deg); }
 lt-badge {
   display: inline-flex;
   align-items: center;
-  padding: 4px 9px;
-  border: 1px solid var(--fg-muted);
+  padding: 6px 14px;
+  border: 1.5px solid var(--fg-muted);
   color: var(--fg-muted);
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  border-radius: 3px;
+  border-radius: 4px;
   background: transparent;
 }
 
 /* ── lt-postit ── */
 lt-postit {
   display: inline-block;
-  padding: 13px 16px;
+  padding: 20px 24px;
   background: var(--sticker3);
   color: #1a1a1a;
   font-family: var(--font-hand);
-  font-size: 21px;
+  font-size: 32px;
   line-height: 1.3;
-  max-width: 213px;
-  box-shadow: 3px 4px 9px rgba(0, 0, 0, 0.18);
+  max-width: 320px;
+  box-shadow: 4px 6px 14px rgba(0, 0, 0, 0.18);
   border-radius: 2px;
   position: relative;
 }
-lt-postit[rotate] {
-  transform: rotate(attr(rotate type(<angle>), 0deg));
-}
-/* Fallback for browsers not supporting attr() with type */
 lt-postit[rotate="-5"] { transform: rotate(-5deg); }
 lt-postit[rotate="4"]  { transform: rotate(4deg); }
 lt-postit[rotate="-3"] { transform: rotate(-3deg); }
@@ -251,11 +250,11 @@ lt-postit[rotate="-3"] { transform: rotate(-3deg); }
 lt-postit::before {
   content: "";
   position: absolute;
-  top: -7px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%) rotate(-4deg);
-  width: 53px;
-  height: 12px;
+  width: 80px;
+  height: 18px;
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -264,18 +263,18 @@ lt-postit::before {
 lt-deco {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 /* ── lt-prompt ── */
 lt-prompt {
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 26px;
   color: var(--fg);
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 14px;
 }
 lt-prompt::before {
   content: "$";
@@ -285,8 +284,8 @@ lt-prompt::before {
 lt-prompt::after {
   content: "";
   display: inline-block;
-  width: 8px;
-  height: 16px;
+  width: 12px;
+  height: 24px;
   background: var(--accent);
   animation: blink 1s steps(2) infinite;
 }
@@ -294,32 +293,34 @@ lt-prompt::after {
 /* ── lt-compare ── */
 lt-compare {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 27px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
   align-items: stretch;
   flex: 1;
+  position: relative;
 }
-/* Arrow between panels via ::after on first lt-panel */
-lt-compare lt-panel[type="before"]::after {
+/* Arrow between panels */
+lt-compare::after {
   content: "\2192";
   position: absolute;
-  right: -42px;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   font-family: var(--font-mono);
-  font-size: 43px;
+  font-size: 64px;
   color: var(--accent);
   font-weight: 700;
+  z-index: 1;
 }
 
 /* ── lt-panel ── */
 lt-panel {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  padding: 24px;
+  gap: 24px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 36px;
   background: var(--bg-alt);
   position: relative;
 }
@@ -327,11 +328,10 @@ lt-panel[type="after"] {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
-/* Panel label via ::before */
 lt-panel[type="before"]::before {
   content: "// BEFORE";
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   color: var(--fg-muted);
   letter-spacing: 0.1em;
   font-weight: 700;
@@ -339,20 +339,18 @@ lt-panel[type="before"]::before {
 lt-panel[type="after"]::before {
   content: "// AFTER";
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   color: var(--accent-dim);
   letter-spacing: 0.1em;
   font-weight: 700;
 }
-/* Headline inside panel */
 lt-panel h3 {
-  font-size: 37px;
+  font-size: 56px;
   font-weight: 800;
   color: var(--fg);
   line-height: 1.1;
   margin: 0;
 }
-/* List inside panel */
 lt-panel ul {
   list-style: none;
   padding: 0;
@@ -360,9 +358,9 @@ lt-panel ul {
 }
 lt-panel ul li {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 26px;
   color: var(--fg);
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 lt-panel[type="before"] ul li::before {
   content: "- ";
@@ -373,6 +371,40 @@ lt-panel[type="after"] ul li::before {
   color: var(--accent-dim);
 }
 
+/* ── lt-qr (QR code placement) ──
+   Usage in slides:
+     <lt-qr>
+       <img src="assets/qr.svg" alt="QR" />
+       <span>scan to follow along</span>
+     </lt-qr>
+*/
+lt-qr {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+lt-qr img {
+  width: 110px;
+  height: 110px;
+  padding: 8px;
+  background: var(--bg);
+  border: 1.5px solid var(--accent);
+  border-radius: 6px;
+  box-sizing: content-box;
+}
+lt-qr span {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--fg-muted);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
 /* ══════════════════════════════════════
    01  TITLE  — <!-- _class: title -->
    ══════════════════════════════════════
@@ -380,67 +412,72 @@ lt-panel[type="after"] ul li::before {
      `event badge` (inline code)
      # Title *Accent*
      subtitle text (p)
-     <div class="deco">stickers</div>
+     <lt-deco>stickers</lt-deco>
 */
 section.title {
-  justify-content: center;
-  padding-top: 80px;
+  padding-top: 160px;
 }
 section.title code {
   background: none;
   border: none;
   padding: 0;
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 26px;
   color: var(--fg-muted);
   letter-spacing: 0.1em;
 }
 section.title h1 {
-  font-size: 88px;
+  font-size: 132px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 24px 0 0;
+  margin: 56px 0 0;
 }
 section.title h1 + p {
   font-family: var(--font-mono);
-  font-size: 21px;
+  font-size: 32px;
   color: var(--fg-muted);
-  margin: 32px 0 0;
+  margin: 48px 0 0;
+}
+/* Title slide: sticker row pushed down */
+section.title lt-deco {
+  margin-top: 72px;
+}
+/* Title slide: large QR at bottom-right */
+section.title lt-qr {
+  bottom: 120px;
+  right: 128px;
+}
+section.title lt-qr img {
+  width: 240px;
+  height: 240px;
+}
+section.title lt-qr span {
+  font-size: 20px;
 }
 
 /* ══════════════════════════════════════
    02  WHOAMI  — <!-- _class: whoami -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">$ whoami</div>
-     <div class="whoami-grid">
-       <div class="avatar">avatar</div>
-       <div class="info">
-         ## Name
-         key :: value rows as table or p
-       </div>
-     </div>
-*/
+   ══════════════════════════════════════ */
 section.whoami .whoami-grid {
   display: grid;
-  grid-template-columns: 213px 1fr;
-  gap: 53px;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
   align-items: start;
-  margin-top: 24px;
+  margin-top: 56px;
 }
 section.whoami .avatar {
-  width: 213px;
-  height: 213px;
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  width: 320px;
+  height: 320px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
   background: var(--bg-alt);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 22px;
   color: var(--fg-dim);
   overflow: hidden;
 }
@@ -451,34 +488,27 @@ section.whoami .avatar::before {
   background-image: repeating-linear-gradient(
     45deg,
     transparent,
-    transparent 11px,
-    var(--border) 11px,
-    var(--border) 12px
+    transparent 16px,
+    var(--border) 16px,
+    var(--border) 17px
   );
   opacity: 0.5;
 }
 section.whoami .info h2 {
-  font-size: 51px;
+  font-size: 76px;
   font-weight: 700;
-  margin: 0 0 16px;
-}
-section.whoami .info h2 + p {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  color: var(--fg-dim);
-  letter-spacing: 0.06em;
-  margin: 0 0 4px;
+  margin: 8px 0 32px;
 }
 section.whoami table {
   border-collapse: collapse;
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
 }
 section.whoami table th,
 section.whoami table td {
   border: none;
-  padding: 2px 0;
+  padding: 4px 0;
   background: none;
   text-align: left;
   vertical-align: baseline;
@@ -486,13 +516,13 @@ section.whoami table td {
 section.whoami table th {
   color: var(--fg-muted);
   font-weight: 400;
-  min-width: 80px;
-  padding-right: 16px;
+  min-width: 100px;
+  padding-right: 24px;
 }
 section.whoami table td:first-of-type {
   color: var(--fg-dim);
-  padding-right: 16px;
-  width: 20px;
+  padding-right: 24px;
+  width: 30px;
 }
 section.whoami table td:last-of-type em {
   color: var(--accent);
@@ -502,18 +532,12 @@ section.whoami table td:last-of-type em {
 
 /* ══════════════════════════════════════
    03  AGENDA  — <!-- _class: agenda -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">agenda</div>
-     ## 本日 *話すこと*
-     1. 問題提起 — 何が起きているか `1 min`
-     2. ...
-*/
+   ══════════════════════════════════════ */
 section.agenda h2 {
-  font-size: 59px;
+  font-size: 88px;
   font-weight: 700;
   line-height: 1.1;
-  margin: 16px 0 32px;
+  margin: 32px 0 64px;
 }
 section.agenda ol {
   list-style: none;
@@ -524,25 +548,25 @@ section.agenda ol {
 section.agenda ol li {
   counter-increment: agenda;
   display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 21px;
+  grid-template-columns: 120px 1fr auto;
+  gap: 32px;
   align-items: baseline;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
   border-bottom: 1px dashed var(--border);
-  font-size: 28px;
+  font-size: 42px;
   font-weight: 600;
 }
 section.agenda ol li::before {
   content: counter(agenda, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 21px;
+  font-size: 32px;
   color: var(--fg-dim);
   font-weight: 400;
 }
 section.agenda ol li code {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 24px;
   color: var(--fg-muted);
   background: none;
   border: none;
@@ -552,12 +576,7 @@ section.agenda ol li code {
 
 /* ══════════════════════════════════════
    04  SECTION DIVIDER  — <!-- _class: section-divider -->
-   ══════════════════════════════════════
-   Structure:
-     `section / 01` (inline code as label)
-     *problem* (em as sub-label)
-     # まずは*現状*
-*/
+   ══════════════════════════════════════ */
 section.section-divider {
   background: var(--bg-alt);
   justify-content: center;
@@ -568,25 +587,25 @@ section.section-divider > p > code {
   border: none;
   padding: 0;
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
   letter-spacing: 0.1em;
 }
 section.section-divider > p:first-of-type {
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
   letter-spacing: 0.1em;
-  margin: 0 0 8px;
+  margin: 0 0 32px;
 }
 section.section-divider > p:first-of-type em {
-  font-size: 24px;
+  font-size: 36px;
   letter-spacing: 0.06em;
   display: block;
-  margin-top: 12px;
+  margin-top: 24px;
 }
 section.section-divider h1 {
-  font-size: 104px;
+  font-size: 156px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -595,28 +614,23 @@ section.section-divider h1 {
 
 /* ══════════════════════════════════════
    05  BODY TEXT  — <!-- _class: body-text -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">key message</div>
-     ## Statement *Accent part*
-     > Note text
-*/
+   ══════════════════════════════════════ */
 section.body-text {
   justify-content: center;
 }
 section.body-text h2 {
-  font-size: 48px;
+  font-size: 72px;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  max-width: 1000px;
+  max-width: 1500px;
 }
 section.body-text blockquote {
   border-left: none;
-  margin: 24px 0 0;
+  margin: 56px 0 0;
   padding: 0;
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
 }
 section.body-text blockquote::before {
@@ -629,90 +643,68 @@ section.body-text blockquote p {
 
 /* ══════════════════════════════════════
    06  BULLETS  — <!-- _class: bullets -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">approach</div>
-     ## 3つの *改善ポイント*
-     - **依存グラフを可視化する**
-       どのパッケージがボトルネックかを最初に把握する
-     - **キャッシュ戦略を見直す**
-       ...
-*/
+   ══════════════════════════════════════ */
 section.bullets h2 {
-  font-size: 59px;
+  font-size: 88px;
   font-weight: 700;
   line-height: 1.1;
-  margin: 12px 0 28px;
+  margin: 28px 0 56px;
 }
 section.bullets ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 1000px;
+  max-width: 1500px;
 }
 section.bullets ul li {
-  padding-left: 28px;
+  padding-left: 42px;
   position: relative;
-  margin-bottom: 19px;
+  margin-bottom: 28px;
 }
 section.bullets ul li::before {
   content: "▸";
   position: absolute;
   left: 0;
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 30px;
   color: var(--accent);
   font-weight: 700;
 }
 section.bullets ul li strong {
   display: block;
-  font-size: 27px;
+  font-size: 40px;
   font-weight: 600;
   color: var(--fg);
   line-height: 1.3;
 }
-section.bullets ul li > br + em,
-section.bullets ul li > em:last-child {
-  /* description text styled as muted — use plain text instead */
-}
-/* Description: text after <strong> that isn't bold */
 section.bullets ul li {
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
   line-height: 1.5;
 }
 
 /* ══════════════════════════════════════
    07  CODE  — <!-- _class: code-slide -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">example</div>
-     ## 差分は *数行で済む*
-     `vite.config.ts`
-     ```ts
-     code here
-     ```
-     > 設定はシンプルに保つのがコツ
-*/
+   ══════════════════════════════════════ */
 section.code-slide h2 {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 700;
-  margin: 8px 0 20px;
+  margin: 24px 0 40px;
 }
-/* filename label above code block */
+/* filename label above code block — styled as editor tab */
 section.code-slide h2 + p {
   margin: 0 0 0;
 }
 section.code-slide h2 + p code,
 section.code-slide h2 + p + p code {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 20px;
   color: var(--fg);
-  background: var(--bg);
+  background: var(--bg-alt);
   border: 1px solid var(--border);
   border-bottom: none;
-  border-radius: 5px 5px 0 0;
-  padding: 8px 15px;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 22px;
   border-top: 2px solid var(--accent);
   display: inline-block;
   margin-bottom: -1px;
@@ -722,14 +714,14 @@ section.code-slide h2 + p + p code {
 section.code-slide pre {
   margin: 0;
   border: 1px solid var(--border);
-  border-radius: 0 5px 5px 5px;
+  border-radius: 0 8px 8px 8px;
   overflow: hidden;
 }
 section.code-slide pre code {
   display: block;
-  padding: 21px 27px;
+  padding: 32px 40px;
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   line-height: 1.55;
   color: var(--fg);
   background: var(--bg-alt);
@@ -738,10 +730,10 @@ section.code-slide pre code {
 }
 section.code-slide blockquote {
   border-left: none;
-  margin: 16px 0 0;
+  margin: 32px 0 0;
   padding: 0;
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 26px;
   color: var(--fg-muted);
 }
 section.code-slide blockquote::before {
@@ -754,40 +746,29 @@ section.code-slide blockquote p {
 
 /* ══════════════════════════════════════
    08  IMAGE  — <!-- _class: image-slide -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">demo</div>
-     ## 実際の *画面*
-     ![alt](path/to/image.png)
-     caption text (p after img)
-*/
+   ══════════════════════════════════════ */
 section.image-slide h2 {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 700;
-  margin: 8px 0 20px;
+  margin: 24px 0 40px;
 }
 section.image-slide img {
   border: 1px solid var(--border);
-  border-radius: 5px;
-  max-height: 420px;
+  border-radius: 8px;
+  max-height: 630px;
   object-fit: contain;
 }
 section.image-slide img + p,
 section.image-slide p:last-of-type:not(:first-of-type) {
   font-family: var(--font-mono);
-  font-size: 17px;
+  font-size: 26px;
   color: var(--fg-muted);
-  margin-top: 12px;
+  margin-top: 28px;
 }
 
 /* ══════════════════════════════════════
    09  QUOTE  — <!-- _class: quote -->
-   ══════════════════════════════════════
-   Structure:
-     <div class="kicker">reference</div>
-     > Quote text here
-     **Author** · Source
-*/
+   ══════════════════════════════════════ */
 section.quote {
   justify-content: center;
 }
@@ -795,21 +776,21 @@ section.quote blockquote {
   border-left: none;
   margin: 0;
   padding: 0;
-  max-width: 1000px;
+  max-width: 1500px;
   position: relative;
 }
 section.quote blockquote::before {
   content: "\201C";
-  font-size: 160px;
+  font-size: 240px;
   font-weight: 800;
   color: var(--accent);
   line-height: 0.7;
   display: block;
-  margin-bottom: -8px;
-  margin-left: -5px;
+  margin-bottom: -20px;
+  margin-left: -8px;
 }
 section.quote blockquote p {
-  font-size: 37px;
+  font-size: 56px;
   font-weight: 500;
   line-height: 1.3;
   color: var(--fg);
@@ -817,18 +798,18 @@ section.quote blockquote p {
 }
 /* Attribution line after blockquote */
 section.quote blockquote + p {
-  margin-top: 28px;
+  margin-top: 56px;
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 16px;
 }
 section.quote blockquote + p::before {
   content: "";
   display: inline-block;
-  width: 24px;
+  width: 36px;
   height: 1px;
   background: var(--fg-muted);
 }
@@ -838,59 +819,51 @@ section.quote blockquote + p strong {
 
 /* ══════════════════════════════════════
    10  COMPARE  — <!-- _class: compare -->
-   ══════════════════════════════════════
-   Structure: (HTML needed for grid)
-     <div class="kicker">result</div>
-     ## ビルド時間が *1/3 に*
-     <div class="compare">
-       <div class="before">
-         <h3>180秒</h3>
-         - 毎PRごとにフルビルド
-         ...
-       </div>
-       <div class="after">
-         <h3>55秒</h3>
-         + 差分のみリビルド
-         ...
-       </div>
-     </div>
-*/
+   ══════════════════════════════════════ */
 section.compare h2 {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 700;
-  margin: 8px 0 24px;
+  margin: 24px 0 48px;
 }
-/* Compare layout handled by lt-compare / lt-panel custom elements (CSS-only) */
 
 /* ══════════════════════════════════════
    11  CLOSING  — <!-- _class: closing -->
-   ══════════════════════════════════════
-   Structure:
-     `— fin` (code or p)
-     # Thank *you.*
-     message text (p)
-     <div class="deco">stickers</div>
-     <div class="prompt">logout</div>
-*/
+   ══════════════════════════════════════ */
 section.closing {
   justify-content: center;
 }
 section.closing > p:first-of-type,
 section.closing > p:first-child {
   font-family: var(--font-mono);
-  font-size: 19px;
+  font-size: 28px;
   color: var(--fg-muted);
   letter-spacing: 0.1em;
-  margin: 0 0 16px;
+  margin: 0 0 24px;
 }
 section.closing h1 {
-  font-size: 104px;
+  font-size: 156px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 section.closing h1 + p {
-  font-size: 25px;
+  font-size: 38px;
   color: var(--fg-muted);
-  margin: 8px 0 0;
+  margin: 24px 0 0;
+}
+/* Closing slide: sticker row pushed down */
+section.closing lt-deco {
+  margin-top: 80px;
+}
+/* Closing slide: large QR at bottom-right */
+section.closing lt-qr {
+  bottom: 120px;
+  right: 128px;
+}
+section.closing lt-qr img {
+  width: 260px;
+  height: 260px;
+}
+section.closing lt-qr span {
+  font-size: 20px;
 }

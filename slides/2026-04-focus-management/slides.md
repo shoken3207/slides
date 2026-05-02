@@ -4,6 +4,7 @@ theme: lt-teal
 paginate: true
 header: "#a11y #focus"
 footer: "@ezakichi3207  /  fukuoka.ts #2026"
+qr_slide: 2026-04-focus-management
 ---
 
 <!-- _class: title -->
@@ -20,6 +21,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   <lt-sticker rotate="3" color="peach">a11y</lt-sticker>
 </lt-deco>
 
+
 ---
 
 <!-- _class: whoami -->
@@ -31,7 +33,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   <div class="avatar"><span>avatar</span></div>
   <div class="info">
 
-<p style="font-family:var(--font-mono);font-size:15px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
+<p style="font-family:var(--font-mono);font-size:22px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
 
 ## Your Name
 
@@ -45,9 +47,10 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   </div>
 </div>
 
-<div style="position:absolute;bottom:93px;right:67px">
+<div style="position:absolute;bottom:140px;right:100px">
   <lt-postit rotate="-5">普段は React<br>と TypeScript<br>書いてます</lt-postit>
 </div>
+
 
 ---
 
@@ -63,6 +66,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 3. 実装テクニック3選 `2 min`
 4. まとめ と これから `1 min`
 
+
 ---
 
 <!-- _class: section-divider -->
@@ -73,9 +77,10 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 
 # *フォーカス*とは
 
-<div style="position:absolute;top:133px;right:120px">
+<div style="position:absolute;top:200px;right:180px">
   <lt-sticker rotate="8" color="peach">基礎</lt-sticker>
 </div>
+
 
 ---
 
@@ -87,6 +92,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 ## フォーカスは「今どこにいるか」を *ユーザーに伝える唯一の手段。*
 
 > キーボードユーザーやスクリーンリーダー利用者にとって、フォーカスの迷子は操作不能と同義
+
 
 ---
 
@@ -104,6 +110,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 - **視覚的なフィードバックを提供する**
   `:focus-visible` で「今ここ」を示す唯一のインジケーター
 
+
 ---
 
 <!-- _class: section-divider -->
@@ -113,6 +120,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 *broken patterns*
 
 # よくある*壊れ方*
+
 
 ---
 
@@ -129,6 +137,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   SPA のルーティングやリスト更新で focus が body に戻る
 - **削除操作後のフォーカスが宙に浮く**
   リストアイテム削除後、次にどこにフォーカスすべきか未定義
+
 
 ---
 
@@ -157,6 +166,7 @@ function Modal({ isOpen, children }) {
 
 > フォーカスがモーダル内に閉じ込められず、裏側を Tab で移動できてしまう
 
+
 ---
 
 <!-- _class: section-divider -->
@@ -167,9 +177,10 @@ function Modal({ isOpen, children }) {
 
 # 実装*テクニック*
 
-<div style="position:absolute;top:133px;right:120px">
+<div style="position:absolute;top:200px;right:180px">
   <lt-sticker rotate="8" color="mustard">実践</lt-sticker>
 </div>
+
 
 ---
 
@@ -194,6 +205,7 @@ const onClose = () => triggerRef.current?.focus();
 ```
 
 > `<dialog>` + `showModal()` でブラウザネイティブのフォーカストラップを得る
+
 
 ---
 
@@ -222,6 +234,7 @@ function useFocusOnNavigate() {
 
 > SPA 遷移後にページ先頭へフォーカスを戻し、読み上げ順を保証する
 
+
 ---
 
 <!-- _class: code-slide -->
@@ -246,6 +259,7 @@ const handleDelete = (index: number) => {
 ```
 
 > 削除後のフォーカス先を明示的に決めることで、ユーザーの迷子を防ぐ
+
 
 ---
 
@@ -279,6 +293,7 @@ const handleDelete = (index: number) => {
 </lt-panel>
 </lt-compare>
 
+
 ---
 
 <!-- _class: quote -->
@@ -289,6 +304,7 @@ const handleDelete = (index: number) => {
 > The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.
 
 **Tim Berners-Lee** · W3C
+
 
 ---
 
@@ -306,6 +322,7 @@ const handleDelete = (index: number) => {
 - **Tab キーでの手動テストを習慣にする**
   マウスを使わずに一通り操作してみるだけで多くの問題が見つかる
 
+
 ---
 
 <!-- _class: closing -->
@@ -322,5 +339,6 @@ const handleDelete = (index: number) => {
   <lt-badge>questions / comments</lt-badge>
   <lt-sticker rotate="4" color="peach">thx!</lt-sticker>
 </lt-deco>
+
 
 <lt-prompt>logout</lt-prompt>

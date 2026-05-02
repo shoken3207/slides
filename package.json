@@ -2,6 +2,9 @@
   "name": "my-lt-template",
   "version": "1.0.0",
   "private": true,
+  "config": {
+    "slidesBaseUrl": "https://shoken3207.github.io/slides"
+  },
   "scripts": {
     "dev": "marp --preview -c marp.config.mjs",
     "build": "marp -c marp.config.mjs -o dist/",
@@ -9,6 +12,7 @@
     "build:pptx": "marp -c marp.config.mjs --pptx --allow-local-files -o dist/"
   },
   "devDependencies": {
-    "@marp-team/marp-cli": "^4"
+    "@marp-team/marp-cli": "^4",
+    "qrcode": "^1.5.4"
   }
 }

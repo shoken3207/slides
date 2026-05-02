@@ -4,6 +4,7 @@ theme: lt-teal
 paginate: true
 header: "#intro #lt"
 footer: "@ezakichi3207  /  fukuoka.ts #2026"
+qr_slide: 2026-04-frontend-lt
 ---
 
 <!-- _class: title -->
@@ -20,6 +21,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   <lt-sticker rotate="3" color="peach">v1.0</lt-sticker>
 </lt-deco>
 
+
 ---
 
 <!-- _class: whoami -->
@@ -31,7 +33,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   <div class="avatar"><span>avatar</span></div>
   <div class="info">
 
-<p style="font-family:var(--font-mono);font-size:15px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
+<p style="font-family:var(--font-mono);font-size:22px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
 
 ## Your Name
 
@@ -45,9 +47,10 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   </div>
 </div>
 
-<div style="position:absolute;bottom:93px;right:67px">
+<div style="position:absolute;bottom:140px;right:100px">
   <lt-postit rotate="-5">普段は React<br>と TypeScript<br>書いてます</lt-postit>
 </div>
+
 
 ---
 
@@ -63,6 +66,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 3. 結果 — Before / After `1.5 min`
 4. 学び と これから `0.5 min`
 
+
 ---
 
 <!-- _class: section-divider -->
@@ -73,9 +77,10 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 
 # まずは*現状*
 
-<div style="position:absolute;top:133px;right:120px">
+<div style="position:absolute;top:200px;right:180px">
   <lt-sticker rotate="8" color="peach">NEW</lt-sticker>
 </div>
+
 
 ---
 
@@ -87,6 +92,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
 ## ビルドは早ければ早いほど *正義。*
 
 > でも、本当に大事なのは「壊れないビルド」
+
 
 ---
 
@@ -103,6 +109,7 @@ footer: "@ezakichi3207  /  fukuoka.ts #2026"
   Turbopack/Vite のキャッシュ層を理解して使い切る
 - **計測を CI に組み込む**
   PR ごとにビルド時間の差分を可視化
+
 
 ---
 
@@ -132,6 +139,7 @@ export default defineConfig({
 
 > 設定はシンプルに保つのがコツ
 
+
 ---
 
 <!-- _class: image-slide -->
@@ -145,6 +153,7 @@ export default defineConfig({
 
 本番のダッシュボード（モック）
 
+
 ---
 
 <!-- _class: quote -->
@@ -155,6 +164,7 @@ export default defineConfig({
 > Premature optimization is the root of all evil — yet we should not pass up our opportunities in that critical 3%.
 
 **Donald Knuth** · Structured Programming with go to Statements
+
 
 ---
 
@@ -186,6 +196,7 @@ export default defineConfig({
 </lt-panel>
 </lt-compare>
 
+
 ---
 
 <!-- _class: closing -->
@@ -202,5 +213,6 @@ export default defineConfig({
   <lt-badge>questions / comments</lt-badge>
   <lt-sticker rotate="4" color="peach">thx!</lt-sticker>
 </lt-deco>
+
 
 <lt-prompt>logout</lt-prompt>
