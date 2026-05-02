@@ -44,18 +44,13 @@ jobs:
 
       - name: Copy assets to dist
         run: |
+          # 共有 assets
+          [ -d "slides/assets" ] && cp -r slides/assets dist/assets
+          # スライド固有 assets
           for dir in slides/*/; do
             [ -f "${dir}slides.md" ] || continue
             name=$(basename "$dir")
-            # 共有 assets → スライド固有 assets の順でマージ
-            mkdir -p "dist/${name}/assets"
-            [ -d "slides/assets" ] && cp -r slides/assets/* "dist/${name}/assets/"
-            [ -d "${dir}assets" ] && cp -r "${dir}assets/"* "dist/${name}/assets/"
-            # 共有 assets (slides/assets/) をマージ
-            if [ -d "slides/assets" ]; then
-              mkdir -p "dist/${name}/assets"
-              cp -rn slides/assets/* "dist/${name}/assets/" 2>/dev/null || true
-            fi
+            [ -d "${dir}assets" ] && cp -r "${dir}assets" "dist/${name}/assets"
           done
 
       - name: Generate index page

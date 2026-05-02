@@ -4,16 +4,23 @@ set -e
 
 rm -rf dist
 
+# 共有 assets をコピー
+if [ -d "slides/assets" ]; then
+  mkdir -p dist
+  cp -r slides/assets dist/assets
+fi
+
+# 各スライドをビルド
 for dir in slides/*/; do
   [ -f "${dir}slides.md" ] || continue
   name=$(basename "$dir")
   mkdir -p "dist/${name}"
   npx marp "${dir}slides.md" -c marp.config.mjs -o "dist/${name}/index.html"
 
-  # assets をコピー（共有 → スライド固有の順でマージ）
-  mkdir -p "dist/${name}/assets"
-  [ -d "slides/assets" ] && cp -r slides/assets/* "dist/${name}/assets/"
-  [ -d "${dir}assets" ] && cp -r "${dir}assets/"* "dist/${name}/assets/"
+  # スライド固有の assets をコピー
+  if [ -d "${dir}assets" ]; then
+    cp -r "${dir}assets" "dist/${name}/assets"
+  fi
 done
 
 echo "Build complete: dist/"

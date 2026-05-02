@@ -30,7 +30,7 @@ qr_slide: 2026-04-frontend-lt
 <lt-kicker>$ whoami</lt-kicker>
 
 <div class="whoami-grid">
-  <div class="avatar"><img src="assets/profile.jpg" alt="えざきち" /></div>
+  <div class="avatar"><img src="../assets/profile.jpg" alt="えざきち" /></div>
   <div class="info">
 
 <p style="font-family:var(--font-mono);font-size:22px;color:var(--fg-dim);letter-spacing:0.06em;margin:0">name —</p>
