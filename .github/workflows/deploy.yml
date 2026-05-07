@@ -37,7 +37,7 @@ jobs:
             name=$(basename "$dir")
             mkdir -p "dist/${name}"
             npx marp "${dir}slides.md" -c marp.config.mjs --bespoke.progress -o "dist/${name}/index.html"
-            npx marp "${dir}slides.md" -c marp.config.mjs --image png --allow-local-files --browser-timeout 60 -o "dist/${name}/og.png" || echo "⚠ OG image failed for ${name}, skipping"
+            npx marp "${dir}slides.md" -c marp.config.mjs --image png -o "dist/${name}/og.png" || echo "⚠ OG image failed for ${name}, skipping"
             bash scripts/inject-progress.sh "dist/${name}/index.html"
             bash scripts/inject-ogp.sh "dist/${name}/index.html" "$BASE_URL" "$name"
           done
