@@ -634,7 +634,7 @@ section.section-divider > p:first-of-type em {
 section.section-divider h1 {
   font-size: 156px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: -0.03em;
   margin-top: 8px;
 }
