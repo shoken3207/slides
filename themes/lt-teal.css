@@ -605,8 +605,8 @@ section.agenda ol li code {
 section.section-divider {
   background: var(--bg-alt);
   justify-content: center;
-  padding-top: 280px;
-  padding-bottom: 280px;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 section.section-divider > code,
 section.section-divider > p > code {

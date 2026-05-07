@@ -168,7 +168,7 @@ qr_slide: 2026-05-navigation-api
 <!-- _class: section-divider -->
 <!-- header: "#history-api" -->
 
-# Navigation APIが便利なことはわかった
+# Navigation APIが*便利なことはわかった*
 
 
 ---
@@ -176,7 +176,7 @@ qr_slide: 2026-05-navigation-api
 <!-- _class: section-divider -->
 <!-- header: "#history-api" -->
 
-# ルーティングライブラリを使っていたらあまり関係なくない？
+# ルーティングライブラリを使っていたら*あまり関係なくない？*
 
 ---
 
@@ -307,7 +307,7 @@ navigation.addEventListener('currententrychange', () => {
 
 ## *ページ間アニメーション*
 
-> View Transitions API と Navigation API を組み合わせて、MPA のようなスムーズな遷移を SPA で実現
+> View Transitions API と Navigation API を組み合わせて、スムーズな遷移を SPAで実装
 
 ---
 
@@ -323,18 +323,16 @@ navigation.addEventListener('navigate', (event) => {
   if (!event.canIntercept) return;
 
   event.intercept({
-    async handler() {
-      const html = await fetchPage(event.destination.url);
-      // View Transitions API と組み合わせ
-      document.startViewTransition(() => {
-        document.querySelector('#app').innerHTML = html;
-      });
+    handler() {
+      return document.startViewTransition(() => {
+        updateContent(event.destination.url);
+      }).finished;
     }
   });
 });
 ```
 
-> Navigation API + View Transitions API で、MPA のようなスムーズな遷移を SPA で実現
+> `navigate` イベントでリンククリックもブラウザバックも一括ハンドリング。View Transitions と組み合わせるだけでページ遷移アニメーションが完成する
 
 ---
 
